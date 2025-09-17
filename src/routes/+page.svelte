@@ -1,7 +1,7 @@
 <script>
 	import StatusHeader from '$components/StatusHeader.svelte';
 	import ProductionProgress from '$components/ProductionProgress.svelte';
-	import EffectiveTime from '$components/components/EffectiveTime.svelte';
+	import EffectiveTime from '$components/EffectiveTime.svelte';
 	import LineCapacity from '$components/LineCapacity.svelte';
 	import PlannedSpeed from '$components/PlannedSpeed.svelte';
 	import BreaksToday from '$components/BreaksToday.svelte';
