@@ -7,7 +7,9 @@ const base = process.env.BASE_PATH ?? ''; // sätts i CI till "/live-dashboard"
 const config = {
 	preprocess: sveltePreprocess(),
 	kit: {
-		adapter: adapter(),
+		adapter: adapter({
+			fallback: 'index.html' // <-- SPA fallback för GitHub Pages
+		}),
 		paths: { base },
 		prerender: { entries: ['*'] },
 		alias: {
