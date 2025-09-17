@@ -8,7 +8,7 @@
 	import LastStart from '$components/LastStart.svelte';
 	import ClearTime from '$components/ClearTime.svelte';
 	import PointStylingChart from '$components/PointStylingChart.svelte';
-	import ProductionHistoryList from '$components/productionHistoryList.svelte';
+	import ProductionHistoryList from '$components/ProductionHistoryList.svelte';
 	import CollapsiblePlanner from '$components/CollapsiblePlanner.svelte';
 </script>
 
