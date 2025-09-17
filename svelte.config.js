@@ -1,11 +1,11 @@
-import { vitePreprocess } from '@sveltejs/kit/vite';
 import adapter from '@sveltejs/adapter-static';
+import sveltePreprocess from 'svelte-preprocess';
 import path from 'path';
 
 const base = process.env.BASE_PATH ?? ''; // sätts i CI till "/live-dashboard"
 
 const config = {
-	preprocess: vitePreprocess(),
+	preprocess: sveltePreprocess(),
 	kit: {
 		adapter: adapter(),
 		paths: { base },
@@ -17,4 +17,5 @@ const config = {
 		}
 	}
 };
+
 export default config;
