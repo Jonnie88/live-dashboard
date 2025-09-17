@@ -1,31 +1,34 @@
 <script>
 	import { slide } from 'svelte/transition';
-	import {
-		clearTime,
-		lineStart,
-		lineEnd,
-		breakStart,
-		breakEnd
-	} from '$lib/stores/base/timeStore.js';
 
-	import { line1Capacity, line2Capacity } from '$lib/stores/base/capacityStore.js';
-	import { forecast } from '$lib/stores/base/targetStore.js';
+	export let open = false; // controls visibility
+	export let title = 'Planeringsformulär'; // fallback if you don't pass a header slot
 
-	// Öppen/stängd
-	export let open = false;
-
-	// Helpers …
-	const pad = (n) => String(n).padStart(2, '0');
-	const toLocalDatetime = (d) => {
-		if (!d) return '';
-		const dt = new Date(d);
-		return `${dt.getFullYear()}-${pad(dt.getMonth() + 1)}-${pad(dt.getDate())}T${pad(dt.getHours())}:${pad(dt.getMinutes())}`;
-	};
-	const toDate = (s) => {
-		const d = new Date(s);
-		return Number.isNaN(d.getTime()) ? null : d;
-	};
-
-	const toNonNegInt = (v) => Math.max(0, Math.floor(Number(v) || 0));
-	const toNonNegNum = (v) => Math.max(0, Number(v) || 0);
+	$: chevron = open ? '▲' : '▼';
 </script>
+
+<div class="mx-4 mb-2 rounded-lg bg-white shadow-sm ring-1 ring-gray-200">
+	<!-- Header / Toggle -->
+	<button
+		type="button"
+		class="flex w-full items-center justify-between gap-3 rounded-lg px-4 py-3 text-left hover:bg-gray-50"
+		on:click={() => (open = !open)}
+		aria-expanded={open}
+		aria-controls="collapsible-content"
+	>
+		<div class="flex items-center gap-2">
+			<!-- Named header slot, falls back to title -->
+			<slot name="header">
+				<span class="text-sm font-semibold text-gray-900">{title}</span>
+			</slot>
+		</div>
+		<span class="text-xs text-gray-500">{chevron}</span>
+	</button>
+
+	{#if open}
+		<div id="collapsible-content" class="border-t border-gray-200 px-4 py-4" in:slide out:slide>
+			<!-- Your form (or anything) goes here -->
+			<slot />
+		</div>
+	{/if}
+</div>

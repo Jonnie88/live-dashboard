@@ -10,10 +10,20 @@
 	import PointStylingChart from '$components/PointStylingChart.svelte';
 	import ProductionHistoryList from '$components/ProductionHistoryList.svelte';
 	import CollapsiblePlanner from '$components/CollapsiblePlanner.svelte';
+	import PlannerForm from '$components/PlannerForm.svelte';
+
+	// optional: control from parent
+	let plannerOpen = false;
 </script>
 
 <!-- 🆕 Formulär överst -->
-<CollapsiblePlanner open={false} />
+<CollapsiblePlanner bind:open={plannerOpen}>
+	<svelte:fragment slot="header">
+		<span class="text-sm font-semibold text-gray-900">Planeringsformulär</span>
+	</svelte:fragment>
+
+	<PlannerForm />
+</CollapsiblePlanner>
 
 <div class="grid grid-cols-1 gap-4 p-4 sm:grid-cols-2 lg:grid-cols-4">
 	<div class="col-span-1 p-2 sm:col-span-2 lg:col-span-4">
