@@ -1,13 +1,15 @@
-import { vitePreprocess } from '@sveltejs/kit/vite';
 import adapter from '@sveltejs/adapter-static';
+import sveltePreprocess from 'svelte-preprocess';
 import path from 'path';
 
 const base = process.env.BASE_PATH ?? ''; // sätts i CI till "/live-dashboard"
 
 const config = {
-	preprocess: vitePreprocess(),
+	preprocess: sveltePreprocess(), // <-- byt ut vitePreprocess mot sveltePreprocess
 	kit: {
-		adapter: adapter(),
+		adapter: adapter({
+			fallback: 'index.html' // SPA fallback för GitHub Pages
+		}),
 		paths: { base },
 		prerender: { entries: ['*'] },
 		alias: {
@@ -17,4 +19,5 @@ const config = {
 		}
 	}
 };
+
 export default config;
