@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [deploy] # <-- INTE main
+    branches: [main] # <-- INTE main
   workflow_dispatch: # <-- tillåt manuell körning
 
 permissions:
