@@ -5,10 +5,10 @@ import path from 'path';
 const base = process.env.BASE_PATH ?? ''; // sätts i CI till "/live-dashboard"
 
 const config = {
-	preprocess: sveltePreprocess(),
+	preprocess: sveltePreprocess(), // <-- byt ut vitePreprocess mot sveltePreprocess
 	kit: {
 		adapter: adapter({
-			fallback: 'index.html' // <-- SPA fallback för GitHub Pages
+			fallback: 'index.html' // SPA fallback för GitHub Pages
 		}),
 		paths: { base },
 		prerender: { entries: ['*'] },
