@@ -1,16 +1,15 @@
 <script>
-	import StatusHeader from '../components/StatusHeader.svelte';
-	import ProductionProgress from '../components/ProductionProgress.svelte';
-	import EffectiveTime from '../components/EffectiveTime.svelte';
-	import LineCapacity from '../components/LineCapacity.svelte';
-	import PlannedSpeed from '../components/PlannedSpeed.svelte';
-	import BreaksToday from '../components/BreaksToday.svelte';
-	import LastStart from '../components/LastStart.svelte';
-	import ClearTime from '../components/ClearTime.svelte';
-	import PointStylingChart from '../components/PointStylingChart.svelte';
-	import ProductionHistoryList from '../components/productionHistoryList.svelte';
-
-	import CollapsiblePlanner from '../components/CollapsiblePlanner.svelte';
+	import StatusHeader from '$components/StatusHeader.svelte';
+	import ProductionProgress from '$components/ProductionProgress.svelte';
+	import EffectiveTime from '$components/components/EffectiveTime.svelte';
+	import LineCapacity from '$components/LineCapacity.svelte';
+	import PlannedSpeed from '$components/PlannedSpeed.svelte';
+	import BreaksToday from '$components/BreaksToday.svelte';
+	import LastStart from '$components/LastStart.svelte';
+	import ClearTime from '$components/ClearTime.svelte';
+	import PointStylingChart from '$components/PointStylingChart.svelte';
+	import ProductionHistoryList from '$components/productionHistoryList.svelte';
+	import CollapsiblePlanner from '$components/CollapsiblePlanner.svelte';
 </script>
 
 <!-- 🆕 Formulär överst -->
