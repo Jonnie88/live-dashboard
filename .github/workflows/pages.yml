@@ -2,8 +2,8 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ main ]
-  workflow_dispatch:
+    branches: [deploy] # <-- INTE main
+  workflow_dispatch: # <-- tillåt manuell körning
 
 permissions:
   contents: read
@@ -27,7 +27,7 @@ jobs:
       - name: Build SvelteKit (adapter-static)
         run: npm run build
         env:
-          BASE_PATH: /live-dashboard   # <- viktigt för korrekt paths
+          BASE_PATH: /live-dashboard # repo-namnet, viktigt för rätt paths
       - uses: actions/upload-pages-artifact@v3
         with:
           path: build
